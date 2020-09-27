@@ -4,5 +4,4 @@ draft: false
 weight: 9
 ---
 
-TODO：记录 GitHub Issue 中的一些常见问题。
-
+要做: 记录来自 GitHub 问题选项卡中一些常见的问题。

@@ -1,5 +1,5 @@
 ---
-title: "映射查询字符串或表单参数"
+title: "Map 作为查询字符串或postform参数"
 draft: false
 ---
 
@@ -28,4 +28,3 @@ func main() {
 ```sh
 ids: map[b:hello a:1234], names: map[second:tianou first:thinkerou]
 ```
-

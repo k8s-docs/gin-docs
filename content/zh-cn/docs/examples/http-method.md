@@ -1,14 +1,12 @@
 ---
-title: "使用 HTTP 方法"
+title: "使用HTTP方法"
 draft: false
 ---
 
 ```go
 func main() {
-	// 禁用控制台颜色
-	// gin.DisableConsoleColor()
-
-	// 使用默认中间件（logger 和 recovery 中间件）创建 gin 路由
+	// Creates a gin router with default middleware:
+	// logger and recovery (crash-free) middleware
 	router := gin.Default()
 
 	router.GET("/someGet", getting)
@@ -19,8 +17,9 @@ func main() {
 	router.HEAD("/someHead", head)
 	router.OPTIONS("/someOptions", options)
 
-	// 默认在 8080 端口启动服务，除非定义了一个 PORT 的环境变量。
+	// By default it serves on :8080 unless a
+	// PORT environment variable was defined.
 	router.Run()
-	// router.Run(":3000") hardcode 端口号
+	// router.Run(":3000") for a hard coded port
 }
 ```

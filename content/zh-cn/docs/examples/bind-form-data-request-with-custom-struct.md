@@ -1,9 +1,9 @@
 ---
-title: "绑定表单数据至自定义结构体"
+title: "使用自定义结构捆绑 form-data 请求 "
 draft: false
 ---
 
-以下示例使用自定义结构体：
+使用自定义结构后续的例子:
 
 ```go
 type StructA struct {
@@ -64,7 +64,7 @@ func main() {
 }
 ```
 
-使用 `curl` 命令结果：
+Using the command `curl` command result:
 
 ```
 $ curl "http://localhost:8080/getb?field_a=hello&field_b=world"
@@ -74,22 +74,3 @@ $ curl "http://localhost:8080/getc?field_a=hello&field_c=world"
 $ curl "http://localhost:8080/getd?field_x=hello&field_d=world"
 {"d":"world","x":{"FieldX":"hello"}}
 ```
-
-**注意**：不支持以下格式结构体：
-
-```go
-type StructX struct {
-    X struct {} `form:"name_x"` // 有 form
-}
-
-type StructY struct {
-    Y StructX `form:"name_y"` // 有 form
-}
-
-type StructZ struct {
-    Z *StructZ `form:"name_z"` // 有 form
-}
-```
-
-总之, 目前仅支持没有 form 的嵌套结构体。
-

@@ -1,9 +1,9 @@
 ---
-title: "自定义 HTTP 配置"
+title: "自定义HTTP配置"
 draft: false
 ---
 
-直接使用 `http.ListenAndServe()`，如下所示：
+Use `http.ListenAndServe()` directly, like this:
 
 ```go
 func main() {
@@ -11,7 +11,8 @@ func main() {
 	http.ListenAndServe(":8080", router)
 }
 ```
-或
+
+or
 
 ```go
 func main() {

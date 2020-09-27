@@ -1,17 +1,17 @@
 ---
-title: "不使用默认的中间件"
+title: "如果没有默认中间件"
 draft: false
 ---
 
-使用
+Use
 
 ```go
 r := gin.New()
 ```
 
-代替
+instead of
 
 ```go
-// Default 使用 Logger 和 Recovery 中间件
+// Default With the Logger and Recovery middleware already attached
 r := gin.Default()
 ```

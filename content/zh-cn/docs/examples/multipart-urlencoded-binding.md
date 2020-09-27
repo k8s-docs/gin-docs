@@ -1,5 +1,5 @@
 ---
-title: "Multipart/Urlencoded 绑定"
+title: "Multipart/Urlencoded 捆绑"
 draft: false
 ---
 
@@ -18,11 +18,11 @@ type LoginForm struct {
 func main() {
 	router := gin.Default()
 	router.POST("/login", func(c *gin.Context) {
-		// 你可以使用显式绑定声明绑定 multipart form：
+		// you can bind multipart form with explicit binding declaration:
 		// c.ShouldBindWith(&form, binding.Form)
-		// 或者简单地使用 ShouldBind 方法自动绑定：
+		// or you can simply use autobinding with ShouldBind method:
 		var form LoginForm
-		// 在这种情况下，将自动选择合适的绑定
+		// in this case proper binding will be automatically selected
 		if c.ShouldBind(&form) == nil {
 			if form.User == "user" && form.Password == "password" {
 				c.JSON(200, gin.H{"status": "you are logged in"})
@@ -35,7 +35,8 @@ func main() {
 }
 ```
 
-测试：
+Test it with:
+
 ```sh
 $ curl -v --form user=user --form password=password http://localhost:8080/login
 ```

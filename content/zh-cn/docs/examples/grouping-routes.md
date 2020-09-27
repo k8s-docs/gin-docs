@@ -1,5 +1,5 @@
 ---
-title: "路由组"
+title: "分组路由"
 draft: false
 ---
 
@@ -7,7 +7,7 @@ draft: false
 func main() {
 	router := gin.Default()
 
-	// 简单的路由组: v1
+	// Simple group: v1
 	v1 := router.Group("/v1")
 	{
 		v1.POST("/login", loginEndpoint)
@@ -15,7 +15,7 @@ func main() {
 		v1.POST("/read", readEndpoint)
 	}
 
-	// 简单的路由组: v2
+	// Simple group: v2
 	v2 := router.Group("/v2")
 	{
 		v2.POST("/login", loginEndpoint)

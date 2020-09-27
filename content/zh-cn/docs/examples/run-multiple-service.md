@@ -3,7 +3,7 @@ title: "运行多个服务"
 draft: false
 ---
 
-请参阅 [issues](https://github.com/gin-gonic/gin/issues/346) 并尝试以下示例：
+See the [question](https://github.com/gin-gonic/gin/issues/346) and try the following example:
 
 ```go
 package main
@@ -29,7 +29,7 @@ func router01() http.Handler {
 			http.StatusOK,
 			gin.H{
 				"code":  http.StatusOK,
-				"error": "Welcome server 01",
+				"message": "Welcome server 01",
 			},
 		)
 	})
@@ -45,7 +45,7 @@ func router02() http.Handler {
 			http.StatusOK,
 			gin.H{
 				"code":  http.StatusOK,
-				"error": "Welcome server 02",
+				"message": "Welcome server 02",
 			},
 		)
 	})
@@ -81,4 +81,3 @@ func main() {
 	}
 }
 ```
-

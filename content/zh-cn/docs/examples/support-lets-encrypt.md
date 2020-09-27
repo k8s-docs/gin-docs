@@ -1,9 +1,9 @@
 ---
-title: "支持 Let's Encrypt"
+title: "支持 Let's 加密"
 draft: false
 ---
 
-一行代码支持 LetsEncrypt HTTPS servers 示例。
+example for 1-line LetsEncrypt HTTPS servers.
 
 ```go
 package main
@@ -27,7 +27,7 @@ func main() {
 }
 ```
 
-自定义 autocert manager 示例。
+example for custom autocert manager.
 
 ```go
 package main
@@ -57,4 +57,3 @@ func main() {
 	log.Fatal(autotls.RunWithManager(r, &m))
 }
 ```
-

@@ -1,25 +1,25 @@
 ---
 title: "文档"
-linkTitle: "文档"
+linkTitle: ""
 weight: 20
 menu:
   main:
     weight: 20
 ---
 
-## Gin 是什么？
+## 什么是 Gin?
 
-Gin 是一个用 Go (Golang) 编写的 HTTP web 框架。 它是一个类似于 [martini](https://github.com/go-martini/martini) 但拥有更好性能的 API 框架, 优于 [httprouter](https://github.com/julienschmidt/httprouter)，速度提高了近 40 倍。如果你需要极好的性能，使用 Gin 吧。
-<!-- ![Gin console logger](https://gin-gonic.github.io/gin/other/console.png) -->
+Gin 是用 Go 写的一个 HTTP Web 框架 (Golang).
+它具有一个有更好的性能 Martini-like API -- 高达 40 倍的速度.
+如果您需要砸性能, 让自己的一些 Gin.
 
-## 如何使用 Gin？
+## 如何使用 Gin?
 
-我们提供了一些 API 的使用[示例](https://gin-gonic.com/zh-cn/docs/examples/) 并罗列了一些众所周知的 [Gin 用户](https://gin-gonic.com/zh-cn/docs/users/).
+我们提供了一些 API 使用[实例](https://github.com/gin-gonic/examples)并列出了一些大众所熟知[Gin 的用户](./users).
 
-## 如何为 Gin 做贡献？
+## 如何贡献到 Gin?
 
-* 在社区帮助其他人
-* 告诉我们你使用 Gin 的成功案例
-* 告诉我们如何改善 Gin 并帮助我们实现它
-* 为已有的库做贡献
-
+- 在论坛上帮助人们
+- 告诉我们您使用 Gin 的成功案例
+- 告诉我们如何提高 Gin 并帮助我们做到这一点
+- 有助于现有的库

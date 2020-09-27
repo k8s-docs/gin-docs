@@ -1,9 +1,9 @@
 ---
-title: "静态资源嵌入"
+title: "使用模板建立的单个二进制"
 draft: false
 ---
 
-你可以使用  [go-assets](https://github.com/jessevdk/go-assets) 将静态资源打包到可执行文件中。
+You can build a server into a single binary containing templates by using [go-assets](https://github.com/jessevdk/go-assets).
 
 ```go
 func main() {
@@ -21,7 +21,7 @@ func main() {
 	r.Run(":8080")
 }
 
-// loadTemplate 加载由 go-assets-builder 嵌入的模板
+// loadTemplate loads templates embedded by go-assets-builder
 func loadTemplate() (*template.Template, error) {
 	t := template.New("")
 	for name, file := range Assets.Files {
@@ -41,5 +41,4 @@ func loadTemplate() (*template.Template, error) {
 }
 ```
 
-请参阅 `examples/assets-in-binary` 目录中的完整示例。
-
+See a complete example in the `https://github.com/gin-gonic/examples/tree/master/assets-in-binary` directory.

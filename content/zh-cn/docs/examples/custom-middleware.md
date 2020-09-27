@@ -8,18 +8,18 @@ func Logger() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		t := time.Now()
 
-		// 设置 example 变量
+		// Set example variable
 		c.Set("example", "12345")
 
-		// 请求前
+		// before request
 
 		c.Next()
 
-		// 请求后
+		// after request
 		latency := time.Since(t)
 		log.Print(latency)
 
-		// 获取发送的 status
+		// access the status we are sending
 		status := c.Writer.Status()
 		log.Println(status)
 	}
@@ -32,12 +32,11 @@ func main() {
 	r.GET("/test", func(c *gin.Context) {
 		example := c.MustGet("example").(string)
 
-		// 打印："12345"
+		// it would print: "12345"
 		log.Println(example)
 	})
 
-	// 监听并在 0.0.0.0:8080 上启动服务
+	// Listen and serve on 0.0.0.0:8080
 	r.Run(":8080")
 }
 ```
-

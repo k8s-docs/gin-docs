@@ -1,7 +1,7 @@
 ---
-title: "示例"
+title: "例子"
 draft: false
 weight: 6
 ---
 
-该节列出了 api 的用法。
+该部分列出了 API 的使用。

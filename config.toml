@@ -1,5 +1,5 @@
 baseURL = "https://gin-gonic.com/"
-title = "Gin Web Framework"
+title = "Gin Web框架"
 
 enableRobotsTXT = true
 
@@ -10,8 +10,8 @@ theme = ["docsy"]
 enableGitInfo = true
 
 # Language settings
-contentDir = "content/en"
-defaultContentLanguage = "en"
+contentDir = "content/zh"
+defaultContentLanguage = "zh-cn"
 defaultContentLanguageInSubdir = false
 # Useful when translating.
 enableMissingTranslationPlaceholders = true
@@ -67,8 +67,8 @@ languageName = "English"
 weight = 1
 
 [languages.zh-cn]
-title = "Gin Web Framework"
-description = "Gin Web Framework"
+title = "Gin Web 骨架"
+description = "Gin Web 骨架"
 languageName = "简体中文"
 contentDir = "content/zh-cn"
 time_format_default = "02.01.2006"

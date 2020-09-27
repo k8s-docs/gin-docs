@@ -4,18 +4,18 @@ draft: false
 weight: 8
 ---
 
-##### 使用 [Gin](https://github.com/gin-gonic/gin) web 框架的知名项目：
+##### 运用 [Gin](https://github.com/gin-gonic/gin) web 框架的真棒项目名单 :
 
-* [gorush](https://github.com/appleboy/gorush)：Go 编写的通知推送服务器。
+- [gorush](https://github.com/appleboy/gorush): 用`Go`写的一个推送通知服务器。
 
-* [fnproject](https://github.com/fnproject/fn)：原生容器，云 serverless 平台。
+- [fnproject](https://github.com/fnproject/fn): 容器 native, 云无关的无服务器平台.
 
-* [photoprism](https://github.com/photoprism/photoprism)：由 Go 和 Google TensorFlow 提供支持的个人照片管理工具。
+- [photoprism](https://github.com/photoprism/photoprism): 用 Go 和谷歌 TensorFlow 驱动的个人照片管理 .
 
-* [krakend](https://github.com/devopsfaith/krakend)：拥有中间件的超高性能 API 网关。
+- [krakend](https://github.com/devopsfaith/krakend): 超高性能的 API 网关与中间件.
 
-* [picfit](https://github.com/thoas/picfit)：Go 编写的图像尺寸调整服务器。
+- [picfit](https://github.com/thoas/picfit): 用`Go`写的图像大小调整服务器.
 
-* [gotify](https://github.com/gotify/server)：使用实时 web socket 做消息收发的简单服务器。
+- [gotify](https://github.com/gotify/server): 一个简单的服务器，用于实时每 web 套接字发送和接收消息.
 
-* [cds](https://github.com/ovh/cds)：企业级持续交付和 DevOps 自动化开源平台。
+- [cds](https://github.com/ovh/cds): 企业级持续交付和 DevOps 的自动化开源平台.

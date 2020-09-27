@@ -3,7 +3,7 @@ title: "重定向"
 draft: false
 ---
 
-HTTP 重定向很容易。 内部、外部重定向均支持。
+Issuing a HTTP redirect is easy. Both internal and external locations are supported.
 
 ```go
 r.GET("/test", func(c *gin.Context) {
@@ -11,7 +11,7 @@ r.GET("/test", func(c *gin.Context) {
 })
 ```
 
-通过 POST 方法进行 HTTP 重定向。请参考 issue：[#444](https://github.com/gin-gonic/gin/issues/444)
+Issuing a HTTP redirect from POST. Refer to issue: [#444](https://github.com/gin-gonic/gin/issues/444)
 
 ```go
 r.POST("/test", func(c *gin.Context) {
@@ -19,9 +19,9 @@ r.POST("/test", func(c *gin.Context) {
 })
 ```
 
-路由重定向，使用 `HandleContext`：
+Issuing a Router redirect, use `HandleContext` like below.
 
-``` go
+```go
 r.GET("/test", func(c *gin.Context) {
     c.Request.URL.Path = "/test2"
     r.HandleContext(c)

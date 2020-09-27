@@ -5,39 +5,38 @@ draft: false
 
 ```go
 func main() {
-	// 新建一个没有任何默认中间件的路由
+	// Creates a router without any middleware by default
 	r := gin.New()
 
-	// 全局中间件
-	// Logger 中间件将日志写入 gin.DefaultWriter，即使你将 GIN_MODE 设置为 release。
+	// Global middleware
+	// Logger middleware will write the logs to gin.DefaultWriter even if you set with GIN_MODE=release.
 	// By default gin.DefaultWriter = os.Stdout
 	r.Use(gin.Logger())
 
-	// Recovery 中间件会 recover 任何 panic。如果有 panic 的话，会写入 500。
+	// Recovery middleware recovers from any panics and writes a 500 if there was one.
 	r.Use(gin.Recovery())
 
-	// 你可以为每个路由添加任意数量的中间件。
+	// Per route middleware, you can add as many as you desire.
 	r.GET("/benchmark", MyBenchLogger(), benchEndpoint)
 
-	// 认证路由组
+	// Authorization group
 	// authorized := r.Group("/", AuthRequired())
-	// 和使用以下两行代码的效果完全一样:
+	// exactly the same as:
 	authorized := r.Group("/")
-	// 路由组中间件! 在此例中，我们在 "authorized" 路由组中使用自定义创建的 
-    // AuthRequired() 中间件
+	// per group middleware! in this case we use the custom created
+	// AuthRequired() middleware just in the "authorized" group.
 	authorized.Use(AuthRequired())
 	{
 		authorized.POST("/login", loginEndpoint)
 		authorized.POST("/submit", submitEndpoint)
 		authorized.POST("/read", readEndpoint)
 
-		// 嵌套路由组
+		// nested group
 		testing := authorized.Group("testing")
 		testing.GET("/analytics", analyticsEndpoint)
 	}
 
-	// 监听并在 0.0.0.0:8080 上启动服务
+	// Listen and serve on 0.0.0.0:8080
 	r.Run(":8080")
 }
 ```
-

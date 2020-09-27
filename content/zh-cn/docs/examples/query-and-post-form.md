@@ -1,5 +1,5 @@
 ---
-title: "Query 和 post form"
+title: "查询和提交表单"
 draft: false
 ---
 

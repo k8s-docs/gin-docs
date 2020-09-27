@@ -1,5 +1,5 @@
 ---
-title: "设置和获取 Cookie"
+title: "设置和获取一个 cookie"
 draft: false
 ---
 

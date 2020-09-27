@@ -4,29 +4,29 @@ draft: false
 weight: 7
 ---
 
-##### 怎样编写 Gin 的测试用例
+## 如何为 Gin 编写测试用例?
 
-HTTP 测试首选 `net/http/httptest` 包。
+`net/http/httptest` 包是 HTTP 测试优选方式.
 
 {{<highlight go>}}
 
 package main
 
 func setupRouter() *gin.Engine {
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.String(200, "pong")
-	})
-	return r
+r := gin.Default()
+r.GET("/ping", func(c *gin.Context) {
+c.String(200, "pong")
+})
+return r
 }
 
 func main() {
-	r := setupRouter()
-	r.Run(":8080")
+r := setupRouter()
+r.Run(":8080")
 }
 {{</highlight>}}
 
-上面这段代码的测试用例：
+Test for code example above:
 
 ```go
 package main
@@ -50,6 +50,3 @@ func TestPingRoute(t *testing.T) {
 	assert.Equal(t, "pong", w.Body.String())
 }
 ```
-
-
-

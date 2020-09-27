@@ -1,5 +1,5 @@
 ---
-title: "从 reader 读取数据"
+title: "来自浏览者的数据服务"
 draft: false
 ---
 

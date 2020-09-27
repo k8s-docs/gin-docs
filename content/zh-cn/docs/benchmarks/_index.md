@@ -1,15 +1,15 @@
 ---
-title: "基准测试"
+title: "基准"
 draft: false
 weight: 3
 ---
 
-Gin 使用了自定义版本的 [HttpRouter](https://github.com/julienschmidt/httprouter)
+Gin 使用定制版[HttpRouter](https://github.com/julienschmidt/httprouter)
 
-[查看所有基准测试](https://github.com/gin-gonic/gin/blob/master/BENCHMARKS.md)
+[查看所有基准](https://github.com/gin-gonic/gin/blob/master/BENCHMARKS.md)
 
-| Benchmark name                 |       (1) |             (2) |          (3) |             (4) |
-| ------------------------------ | ---------:| ---------------:| ------------:| ---------------:|
+| 基准名                         |       (1) |             (2) |          (3) |             (4) |
+| ------------------------------ | --------: | --------------: | -----------: | --------------: |
 | BenchmarkGin_GithubAll         | **43550** | **27364 ns/op** |   **0 B/op** | **0 allocs/op** |
 | BenchmarkAce_GithubAll         |     40543 |     29670 ns/op |       0 B/op |     0 allocs/op |
 | BenchmarkAero_GithubAll        |     57632 |     20648 ns/op |       0 B/op |     0 allocs/op |
@@ -41,7 +41,7 @@ Gin 使用了自定义版本的 [HttpRouter](https://github.com/julienschmidt/ht
 | BenchmarkTraffic_GithubAll     |       355 |   3478508 ns/op |  820744 B/op | 14114 allocs/op |
 | BenchmarkVulcan_GithubAll      |      6885 |    193333 ns/op |   19894 B/op |   609 allocs/op |
 
-- (1)：在一定的时间内实现的总调用数，越高越好
-- (2)：单次操作耗时（ns/op），越低越好
-- (3)：堆内存分配 （B/op）, 越低越好
-- (4)：每次操作的平均内存分配次数（allocs/op），越低越好
+- (1): 在不断的时间内完成的总重复次数, 更高意味着更多的自信结果
+- (2): 单一重复持续时间 (ns/op), 越低越好
+- (3): 堆内存 (B/op), 越低越好
+- (4): 每重复平均分配 (allocs/op), 越低越好

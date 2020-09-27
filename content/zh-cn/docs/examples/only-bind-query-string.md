@@ -1,9 +1,9 @@
 ---
-title: "只绑定 url 查询字符串"
+title: "只有绑定的查询字符串"
 draft: false
 ---
 
-`ShouldBindQuery` 函数只绑定 url 查询参数而忽略 post 数据。参阅[详细信息](https://github.com/gin-gonic/gin/issues/742#issuecomment-315953017).
+`ShouldBindQuery` function only binds the query params and not the post data. See the [detail information](https://github.com/gin-gonic/gin/issues/742#issuecomment-315953017).
 
 ```go
 package main

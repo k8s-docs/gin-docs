@@ -1,16 +1,15 @@
 ---
-title: "自定义验证器"
+title: "自定义验证"
 draft: false
 ---
 
-注册自定义验证器，查看[示例代码](https://github.com/gin-gonic/examples/tree/master/struct-lvl-validations).
+It is also possible to register custom validators. See the [example code](https://github.com/gin-gonic/examples/tree/master/struct-lvl-validations).
 
 ```go
 package main
 
 import (
 	"net/http"
-	"reflect"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -18,7 +17,7 @@ import (
 	"github.com/go-playground/validator/v10"
 )
 
-// Booking 包含绑定和验证的数据。
+// Booking contains binded and validated data.
 type Booking struct {
 	CheckIn  time.Time `form:"check_in" binding:"required,bookabledate" time_format:"2006-01-02"`
 	CheckOut time.Time `form:"check_out" binding:"required,gtfield=CheckIn,bookabledate" time_format:"2006-01-02"`
@@ -57,11 +56,12 @@ func getBookable(c *gin.Context) {
 ```
 
 ```sh
-$ curl "localhost:8085/bookable?check_in=2018-04-16&check_out=2018-04-17"
+$ curl "localhost:8085/bookable?check_in=2118-04-16&check_out=2118-04-17"
 {"message":"Booking dates are valid!"}
 
-$ curl "localhost:8085/bookable?check_in=2018-03-08&check_out=2018-03-09"
-{"error":"Key: 'Booking.CheckIn' Error:Field validation for 'CheckIn' failed on the 'bookabledate' tag"}
+$ curl "localhost:8085/bookable?check_in=2118-03-10&check_out=2118-03-09"
+{"error":"Key: 'Booking.CheckOut' Error:Field validation for 'CheckOut' failed on the 'gtfield' tag"}
 ```
 
-[结构体级别的验证器](https://github.com/go-playground/validator/releases/tag/v8.7) 也可以通过其他的方式注册。更多信息请参阅 [struct-lvl-validation 示例](examples/struct-lvl-validations)。
+[Struct level validations](https://github.com/go-playground/validator/releases/tag/v8.7) can also be registered this way.
+See the [struct-lvl-validation example](https://github.com/gin-gonic/examples/tree/master/struct-lvl-validations) to learn more.

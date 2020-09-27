@@ -1,84 +1,69 @@
 ---
-title: "快速入门"
+title: "快速开始"
 draft: false
 weight: 2
 ---
 
-- [要求](#要求)
-- [安装](#安装)
-- [开始](#开始)
+在这个快速入门, 我们将搜集来自代码段的见解，并学习如何:
 
 ## 要求
 
-- Go 1.9 及以上版本
+- Go 1.9 以上
 
-> 很快将不再支持Go 1.7或Go 1.8。
+> Go 1.7 或 Go 1.8 很快将不再支持.
 
 ## 安装
 
-要安装 Gin 软件包，需要先安装 Go 并设置 Go 工作区。
+安装 Gin 包, 您需要首先安装 Go 并设置 Go 工作区.
 
-1.下载并安装 gin：
+1. 下载并安装它:
 
 ```sh
 $ go get -u github.com/gin-gonic/gin
 ```
 
-2.将 gin 引入到代码中：
+2. 导入它在你的代码:
 
 ```go
 import "github.com/gin-gonic/gin"
 ```
 
-3.（可选）如果使用诸如 `http.StatusOK` 之类的常量，则需要引入 `net/http` 包：
+3. (可选的) 导入 `net/http`. 如果使用常量如 `http.StatusOK` 这对实例是必需的 .
 
 ```go
 import "net/http"
 ```
 
-#### 使用 [Govendor](https://github.com/kardianos/govendor) 工具创建项目
-
-1.`go get` govendor
-
-```sh
-$ go get github.com/kardianos/govendor
-```
-2.创建项目并且 `cd` 到项目目录中
+1. 创建项目文件夹和 `cd` 内
 
 ```sh
 $ mkdir -p $GOPATH/src/github.com/myusername/project && cd "$_"
 ```
 
-3.使用 govendor 初始化项目，并且引入 gin
-
-```sh
-$ govendor init
-$ govendor fetch github.com/gin-gonic/gin@v1.3
-```
-
-4.复制启动文件模板到项目目录中
+2. 起始模板复制你的项目中
 
 ```sh
 $ curl https://raw.githubusercontent.com/gin-gonic/examples/master/basic/main.go > main.go
 ```
 
-5.启动项目
+3. 运行项目
 
 ```sh
 $ go run main.go
 ```
 
-## 开始
+## 入门
 
-> 不确定如何编写和执行 Go 代码? [点击这里](https://golang.org/doc/code.html).
+> 不确定如何编写和执行`Go`代码？ [点击这里](https://golang.org/doc/code.html).
 
-首先，创建一个名为 `example.go` 的文件
+首先，创建一个名为 `example.go` 文件:
 
 ```sh
+# assume the following codes in example.go file
 $ touch example.go
 ```
 
-接下来, 将如下的代码写入 `example.go` 中：
+接下来，把下面的代码房子`example.go`内:
 
 ```go
 package main
@@ -92,13 +77,13 @@ func main() {
 			"message": "pong",
 		})
 	})
-	r.Run() // 监听并在 0.0.0.0:8080 上启动服务
+	r.Run() // listen and serve on 0.0.0.0:8080
 }
 ```
 
-然后, 执行 `go run example.go` 命令来运行代码：
+和, 您可以通过 `go run example.go` 运行代码 :
 
 ```sh
-# 运行 example.go 并且在浏览器中访问 0.0.0.0:8080/ping
+# run example.go and visit 0.0.0.0:8080/ping on browser
 $ go run example.go
 ```

@@ -1,14 +1,14 @@
 ---
-title: "多文件"
+title: "Multiple files"
 draft: false
 ---
 
-查看详细[示例代码](https://github.com/gin-gonic/examples/tree/master/upload-file/multiple).
+See the detail [example code](https://github.com/gin-gonic/examples/tree/master/upload-file/multiple).
 
 ```go
 func main() {
 	router := gin.Default()
-	// 为 multipart forms 设置较低的内存限制 (默认是 32 MiB)
+	// Set a lower memory limit for multipart forms (default is 32 MiB)
 	router.MaxMultipartMemory = 8 << 20  // 8 MiB
 	router.POST("/upload", func(c *gin.Context) {
 		// Multipart form
@@ -18,7 +18,7 @@ func main() {
 		for _, file := range files {
 			log.Println(file.Filename)
 
-			// 上传文件至指定目录
+			// Upload the file to specific dst.
 			c.SaveUploadedFile(file, dst)
 		}
 		c.String(http.StatusOK, fmt.Sprintf("%d files uploaded!", len(files)))
@@ -27,7 +27,7 @@ func main() {
 }
 ```
 
-如何使用 `curl`:
+How to `curl`:
 
 ```sh
 curl -X POST http://localhost:8080/upload \

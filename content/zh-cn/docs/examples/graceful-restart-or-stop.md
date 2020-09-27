@@ -1,11 +1,12 @@
 ---
-title: "优雅地重启或停止"
+title: "平稳重启或停止"
 draft: false
 ---
 
-你想优雅地重启或停止 web 服务器吗？有一些方法可以做到这一点。
+Do you want to graceful restart or stop your web server?
+There are some ways this can be done.
 
-我们可以使用 [fvbock/endless](https://github.com/fvbock/endless) 来替换默认的 `ListenAndServe`。更多详细信息，请参阅 issue [#296](https://github.com/gin-gonic/gin/issues/296)。
+We can use [fvbock/endless](https://github.com/fvbock/endless) to replace the default `ListenAndServe`. Refer issue [#296](https://github.com/gin-gonic/gin/issues/296) for more details.
 
 ```go
 router := gin.Default()
@@ -14,13 +15,13 @@ router.GET("/", handler)
 endless.ListenAndServe(":4242", router)
 ```
 
-替代方案:
+An alternative to endless:
 
-* [manners](https://github.com/braintree/manners)：可以优雅关机的 Go Http 服务器。
-* [graceful](https://github.com/tylerb/graceful)：Graceful 是一个 Go 扩展包，可以优雅地关闭 http.Handler 服务器。
-* [grace](https://github.com/facebookgo/grace)：Go 服务器平滑重启和零停机时间部署。
+- [manners](https://github.com/braintree/manners): A polite Go HTTP server that shuts down gracefully.
+- [graceful](https://github.com/tylerb/graceful): Graceful is a Go package enabling graceful shutdown of an http.Handler server.
+- [grace](https://github.com/facebookgo/grace): Graceful restart & zero downtime deploy for Go servers.
 
-如果你使用的是 Go 1.8，可以不需要这些库！考虑使用 http.Server 内置的 [Shutdown()](https://golang.org/pkg/net/http/#Server.Shutdown) 方法优雅地关机. 请参阅 gin 完整的 [graceful-shutdown](https://github.com/gin-gonic/examples/tree/master/graceful-shutdown) 示例。
+If you are using Go 1.8, you may not need to use this library! Consider using http.Server's built-in [Shutdown()](https://golang.org/pkg/net/http/#Server.Shutdown) method for graceful shutdowns. See the full [graceful-shutdown](https://github.com/gin-gonic/examples/tree/master/graceful-shutdown) example with gin.
 
 ```go
 // +build go1.8
@@ -33,6 +34,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"syscall"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -51,15 +53,19 @@ func main() {
 	}
 
 	go func() {
-		// 服务连接
+		// service connections
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Fatalf("listen: %s\n", err)
 		}
 	}()
 
-	// 等待中断信号以优雅地关闭服务器（设置 5 秒的超时时间）
+	// Wait for interrupt signal to gracefully shutdown the server with
+	// a timeout of 5 seconds.
 	quit := make(chan os.Signal)
-	signal.Notify(quit, os.Interrupt)
+	// kill (no param) default send syscanll.SIGTERM
+	// kill -2 is syscall.SIGINT
+	// kill -9 is syscall. SIGKILL but can"t be catch, so don't need add it
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
 	log.Println("Shutdown Server ...")
 
@@ -68,7 +74,11 @@ func main() {
 	if err := srv.Shutdown(ctx); err != nil {
 		log.Fatal("Server Shutdown:", err)
 	}
+	// catching ctx.Done(). timeout of 5 seconds.
+	select {
+	case <-ctx.Done():
+		log.Println("timeout of 5 seconds.")
+	}
 	log.Println("Server exiting")
 }
 ```
-
